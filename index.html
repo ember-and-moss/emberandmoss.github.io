@@ -177,14 +177,16 @@
 </div>
 <footer style="
     width: 100%;
-    max-width: 900px; /* verhindert seitliches Scrollen */
-    margin: 0 auto;   /* zentriert den Footer */
-    padding: 60px 40px;
+    max-width: 100%; /* verhindert Überbreite */
+    margin: 0 auto;
+    padding: 40px 20px; /* etwas schmaler, sicher */
     background: #0a0a0a;
     border-top: 1px solid #222;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box; /* verhindert Breitenfehler */
+    overflow-x: hidden; /* verhindert seitliches Scrollen */
     font-family: 'Helvetica Neue', Arial, sans-serif;
 ">
 

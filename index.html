@@ -58,28 +58,58 @@
 </head>
 
 <body>
-<!-- ⭐ LANGUAGE MENU -->
+<!-- ⭐ LANGUAGE DROPDOWN -->
 <div style="
     position: fixed;
     top: 20px;
     right: 20px;
-    display: flex;
-    gap: 14px;
     z-index: 9999;
-    font-size: 16px;
     font-family: 'Helvetica Neue', Arial, sans-serif;
 ">
-    <span onclick="setLanguage('de')" style="cursor: pointer;">🇩🇪 Deutsch</span>
-    <span onclick="setLanguage('en')" style="cursor: pointer;">🇬🇧 English</span>
-    <span onclick="setLanguage('pt')" style="cursor: pointer;">🇵🇹 Português</span>
-    <span onclick="setLanguage('es')" style="cursor: pointer;">🇪🇸 Español</span>
+
+    <!-- Button -->
+    <div onclick="toggleLanguageMenu()" style="
+        cursor: pointer;
+        background: #111;
+        padding: 8px 14px;
+        border-radius: 6px;
+        color: #e0e0e0;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    ">
+        Sprachen <span style="font-size: 14px;">▼</span>
+    </div>
+
+    <!-- Dropdown -->
+    <div id="languageMenu" style="
+        display: none;
+        margin-top: 10px;
+        background: #111;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    ">
+        <div onclick="setLanguage('de')" style="cursor: pointer; padding: 6px 0; color: #e0e0e0;">🇩🇪 Deutsch</div>
+        <div onclick="setLanguage('en')" style="cursor: pointer; padding: 6px 0; color: #e0e0e0;">🇬🇧 English</div>
+        <div onclick="setLanguage('pt')" style="cursor: pointer; padding: 6px 0; color: #e0e0e0;">🇵🇹 Português</div>
+        <div onclick="setLanguage('es')" style="cursor: pointer; padding: 6px 0; color: #e0e0e0;">🇪🇸 Español</div>
+    </div>
+
 </div>
 
 <script>
+function toggleLanguageMenu() {
+    const menu = document.getElementById('languageMenu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+
 function setLanguage(lang) {
     window.location.href = lang + "/index.html";
 }
 </script>
+
 <nav style="
     width: 100%;
     padding: 20px 40px;
